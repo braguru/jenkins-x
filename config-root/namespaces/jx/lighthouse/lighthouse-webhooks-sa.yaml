@@ -1,0 +1,11 @@
+# Source: lighthouse/templates/webhooks-sa.yaml
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: lighthouse-webhooks
+  annotations:
+    meta.helm.sh/release-name: 'lighthouse'
+    meta.helm.sh/release-namespace: 'jx'
+  namespace: jx
+  labels:
+    gitops.jenkins-x.io/pipeline: 'namespaces'

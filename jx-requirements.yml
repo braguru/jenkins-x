@@ -1,14 +1,18 @@
 apiVersion: core.jenkins-x.io/v4beta1
 kind: Requirements
 spec:
+  autoUpdate:
+    enabled: false
+    schedule: ""
   cluster:
-    provider: kubernetes
-    clusterName: kubeadm-jenkins-x
-    environmentGitOwner: braguru
-    gitKind: github
-    gitServer: https://github.com
-    registry: 774305574116.dkr.ecr.eu-west-1.amazonaws.com
     chartRepository: http://bucketrepo.jx.svc.cluster.local/bucketrepo/charts
+    clusterName: kind
+    environmentGitOwner: todo
+    gitKind: github
+    gitName: github
+    gitServer: https://github.com
+    provider: kubernetes
+    registry: ghcr.io
   environments:
   - key: dev
     owner: braguru
@@ -17,12 +21,16 @@ spec:
   - key: production
   ingress:
     domain: ""
-    externalDNS: false
+    kind: ingress
     namespaceSubDomain: -jx.
     tls:
       email: ""
       enabled: false
       production: false
+  pipelineUser:
+    username: braguru
   repository: bucketrepo
   secretStorage: local
+  vault: {}
   webhook: lighthouse
+
