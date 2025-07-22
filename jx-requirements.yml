@@ -6,15 +6,15 @@ spec:
     schedule: ""
   cluster:
     chartRepository: http://bucketrepo.jx.svc.cluster.local/bucketrepo/charts
-    clusterName: kind
+    clusterName: kubeadm-jenkins-x
     devEnvApprovers:
-    - todo
-    environmentGitOwner: todo
+    - braguru
+    environmentGitOwner: braguru
     gitKind: github
     gitName: github
     gitServer: https://github.com
     provider: kubernetes
-    registry: ghcr.io
+    registry: 774305574116.dkr.ecr.eu-west-1.amazonaws.com
   environments:
   - key: dev
   - key: staging
@@ -23,6 +23,7 @@ spec:
     domain: ""
     externalDNS: false
     namespaceSubDomain: -jx.
+    enabled: false
     tls:
       email: ""
       enabled: false
