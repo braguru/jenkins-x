@@ -1,0 +1,11 @@
+# Source: jxboot-helmfile-resources/templates/jx-gcpods-sa.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: jx-gcpods
+  annotations:
+    meta.helm.sh/release-name: 'jxboot-helmfile-resources'
+    meta.helm.sh/release-namespace: 'jx'
+  namespace: jx
+  labels:
+    gitops.jenkins-x.io/pipeline: 'namespaces'

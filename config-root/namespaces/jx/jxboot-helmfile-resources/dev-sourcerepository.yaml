@@ -1,0 +1,24 @@
+# Source: jxboot-helmfile-resources/templates/repositories.yaml
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  name: "dev"
+  labels:
+    jenkins.io/gitSync: "false"
+    gitops.jenkins-x.io/pipeline: 'namespaces'
+  annotations:
+    meta.helm.sh/release-name: 'jxboot-helmfile-resources'
+    meta.helm.sh/release-namespace: 'jx'
+  namespace: jx
+spec:
+  description: "the git repository for the Dev environment"
+  provider: "https://github.com"
+  providerKind: 'github'
+  providerName: 'github'
+  org: "braguru"
+  repo: "jenkins-x"
+  httpCloneURL: "https://github.com/braguru/jenkins-x.git"
+  url: "https://github.com/braguru/jenkins-x.git"
+  scheduler:
+    kind: Scheduler
+    name: "in-repo"
